@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fox & Owl Story Studio – Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* --- Global layout --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #21001f; /* deep plum */
+      color: #f7efe3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .frame {
+      border-radius: 20px;
+      padding: 3px;
+      background: linear-gradient(135deg, #d4af37, #8c6f2f); /* bronze/gold trim */
+      box-shadow:
+        0 0 0 2px rgba(0, 0, 0, 0.6),
+        0 24px 50px rgba(0, 0, 0, 0.7);
+      max-width: 900px;
+      width: 95%;
+    }
+
+    .inner {
+      background: radial-gradient(circle at top, #3a0840 0, #150016 55%, #0b000d 100%);
+      border-radius: 17px;
+      padding: 24px 28px 28px;
+      box-sizing: border-box;
+    }
+
+    /* --- Header --- */
+    .game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.45);
+      padding-bottom: 12px;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #f7efe3;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      color: #f6d99c;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(244, 214, 145, 0.7);
+      background: rgba(0, 0, 0, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge span.emoji {
+      font-size: 1rem;
+    }
+
+    /* --- Question Card --- */
+    .card {
+      border-radius: 14px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: radial-gradient(circle at top left, rgba(255, 215, 160, 0.12), transparent 55%);
+      padding: 18px 18px 20px;
+      box-sizing: border-box;
+    }
+
+    .scene-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #f6d99c;
+      margin-bottom: 4px;
+      opacity: 0.9;
+    }
+
+    .scene-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #f8f1e5;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      color: #f0d6a0;
+    }
+
+    .meta-pill {
+      border-radius: 999px;
+      padding: 4px 9px;
+      border: 1px solid rgba(246, 217, 156, 0.5);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .question-text {
+      margin-top: 10px;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      color: #fff4dd;
+    }
+
+    /* --- Answers --- */
+    .answers {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .answer-btn {
+      text-align: left;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 214, 145, 0.4);
+      background: rgba(0, 0, 0, 0.45);
+      color: #f7efe3;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, border-color 0.08s ease-out, background 0.08s ease-out;
+    }
+
+    .answer-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
+      border-color: rgba(247, 231, 180, 0.8);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .answer-btn.correct {
+      border-color: #c6ff9f;
+      background: rgba(33, 74, 37, 0.7);
+    }
+
+    .answer-btn.incorrect {
+      border-color: #ffb4b4;
+      background: rgba(86, 16, 29, 0.75);
+    }
+
+    /* --- Footer / Controls --- */
+    .footer-row {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: #f2d8a6;
+    }
+
+    .primary-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e2b659, #c3872a);
+      color: #2b041d;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      min-height: 1.2em;
+      color: #f6e1b2;
+    }
+
+    @media (max-width: 600px) {
+      .inner {
+        padding: 18px 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="inner">
+      <header class="game-header">
+        <div class="title-block">
+          <div class="logo-text">Fox & Owl Story Studio</div>
+          <div class="subtitle">Simple language · deep thinking · clear evidence</div>
+          <div class="badge-row">
+            <div class="badge"><span class="emoji">🔥</span><span>Firefly · High School</span></div>
+            <div class="badge"><span class="emoji">🦊</span><span>Fox · College</span></div>
+            <div class="badge"><span class="emoji">🦉</span><span>Owl · PhD</span></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="scene-label" id="movie-label">INSIDE OUT · Scene 1</div>
+        <div class="scene-text" id="scene-text"></div>
+
+        <div class="meta-row">
+          <div class="meta-pill" id="skill-pill"></div>
+          <div class="meta-pill" id="tier-pill"></div>
+        </div>
+
+        <div class="question-text" id="question-text"></div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="footer-row">
+          <div id="progress-text"></div>
+          <button id="next-btn" class="primary-btn" disabled>
+            Next Scene →
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+</body>
+</html>
