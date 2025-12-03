@@ -1,12 +1,13 @@
 // questions.js
-// Starter question set for Fox & Owl Story Studio prototype
 
-const questions = [
+// ------------------ Question banks ------------------
+
+// Film questions (e.g., Inside Out)
+const filmQuestions = [
   {
-    id: 1,
-    movie: "Inside Out",
-    tier: "🔥 Firefly",
-    skill: "Emotional Beat Shift",
+    id: "film-1",
+    sceneTitle: "Scene – Inside Out",
+    tier: "Firefly",
     scene:
       "Joy watches Riley at dinner. Riley forces a big smile and says her day was 'fine,' " +
       "but her eyes look tired and she keeps poking her food instead of eating.",
@@ -28,16 +29,12 @@ const questions = [
         text: "She believes Riley is perfectly happy and only acting quiet to be polite.",
         isCorrect: false
       }
-    ],
-    explanation:
-      "Joy notices that Riley’s fake smile doesn’t match her tired eyes and slow movements. " +
-      "That tiny mismatch shows Joy that Riley is hurting inside, even while she says she’s fine."
+    ]
   },
   {
-    id: 2,
-    movie: "Inside Out",
-    tier: "🦊 Fox",
-    skill: "Scene Purpose",
+    id: "film-2",
+    sceneTitle: "Scene – Inside Out",
+    tier: "Fox",
     scene:
       "Riley sits alone on her bed in the new house, holding her old hockey jersey. " +
       "She runs her fingers over the team logo, then quietly folds it and places it in a box.",
@@ -59,16 +56,12 @@ const questions = [
         text: "To show that Riley only cares about packing fast so she can go watch TV.",
         isCorrect: false
       }
-    ],
-    explanation:
-      "The careful way she touches and folds the jersey shows love and sadness at the same time. " +
-      "The scene’s job is to show her slowly releasing the old life she misses, not rushing toward a new one."
+    ]
   },
   {
-    id: 3,
-    movie: "Inside Out",
-    tier: "🦉 Owl",
-    skill: "Theme Connection",
+    id: "film-3",
+    sceneTitle: "Scene – Inside Out",
+    tier: "Owl",
     scene:
       "Inside Riley’s mind, Joy and Sadness finally sit together with a glowing core memory. " +
       "The memory shifts between bright yellow and soft blue as Riley remembers being comforted by her parents " +
@@ -91,94 +84,260 @@ const questions = [
         text: "It shows that emotions must stay separate so Riley can understand her life clearly.",
         isCorrect: false
       }
-    ],
-    explanation:
-      "The memory glowing both yellow and blue at once shows that comfort, loss, and love are tangled together. " +
-      "The scene connects to the theme that mixed feelings can actually bring people closer."
+    ]
   }
 ];
 
-// --- Simple rendering logic ---
+// Literature questions (generic reading-scene style)
+const literatureQuestions = [
+  {
+    id: "lit-1",
+    sceneTitle: "Scene – Quiet Reading Nook",
+    tier: "Firefly",
+    scene:
+      "A girl curls up in the corner of the library with a mystery novel. " +
+      "She reads the same paragraph twice, then suddenly sits up straighter and flips back two pages.",
+    prompt: "What most likely made her sit up and flip back?",
+    options: [
+      {
+        text: "She noticed a small clue she had missed before and wants to re-check what the author hinted at.",
+        isCorrect: true
+      },
+      {
+        text: "She realized the book is too long and wants to skip ahead to the ending.",
+        isCorrect: false
+      },
+      {
+        text: "She remembered she left another book at home and wants to think about that one instead.",
+        isCorrect: false
+      },
+      {
+        text: "She decided she should stop reading mysteries and switch to cookbooks.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-2",
+    sceneTitle: "Scene – School Story Circle",
+    tier: "Fox",
+    scene:
+      "During story time, the teacher pauses after a chapter where the hero fails badly. " +
+      "Half the class looks disappointed; the other half looks curious and leans in.",
+    prompt: "What is the author most likely doing with this moment in the story?",
+    options: [
+      {
+        text: "Using the failure to build tension so that a later success will feel more satisfying.",
+        isCorrect: true
+      },
+      {
+        text: "Trying to convince readers that the hero is lazy and not worth caring about.",
+        isCorrect: false
+      },
+      {
+        text: "Stopping the plot so the teacher has something to talk about in class.",
+        isCorrect: false
+      },
+      {
+        text: "Showing that only perfect characters belong in books.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-3",
+    sceneTitle: "Scene – Favorite Book Re-Read",
+    tier: "Owl",
+    scene:
+      "A boy rereads the final chapter of his favorite fantasy novel. " +
+      "He smiles when the kingdom is saved, but his eyes fill with tears as he closes the book and hugs it to his chest.",
+    prompt:
+      "What deeper idea about reading does this scene show?",
+    options: [
+      {
+        text: "Stories can give both comfort and sadness at the same time because readers care about the world they are leaving.",
+        isCorrect: true
+      },
+      {
+        text: "Books should always end with jokes so that readers never feel mixed emotions.",
+        isCorrect: false
+      },
+      {
+        text: "Reading is only useful for learning facts, not for feeling anything strongly.",
+        isCorrect: false
+      },
+      {
+        text: "Readers should avoid rereading books because the ending will feel weaker each time.",
+        isCorrect: false
+      }
+    ]
+  }
+];
 
+// ------------------ Game state ------------------
+
+let currentMode = "film"; // "film" or "literature"
+let questions = filmQuestions;
 let currentIndex = 0;
-let hasAnswered = false;
+let score = 0;
+let hasScoredCurrentQuestion = false;
 
+// DOM references
+const landingScreen = document.getElementById("landing-screen");
+const gameScreen = document.getElementById("game-screen");
+const playBtn = document.getElementById("play-btn");
+
+const modeFilmBtn = document.getElementById("mode-film");
+const modeLitBtn = document.getElementById("mode-literature");
+
+const sceneTitleEl = document.getElementById("scene-title");
+const tierLabelEl = document.getElementById("tier-label");
 const sceneTextEl = document.getElementById("scene-text");
-const skillPillEl = document.getElementById("skill-pill");
-const tierPillEl = document.getElementById("tier-pill");
 const questionTextEl = document.getElementById("question-text");
 const answersEl = document.getElementById("answers");
 const feedbackEl = document.getElementById("feedback");
-const progressTextEl = document.getElementById("progress-text");
-const nextBtn = document.getElementById("next-btn");
-const movieLabelEl = document.getElementById("movie-label");
+const scoreEl = document.getElementById("score");
+const gameAreaEl = document.getElementById("game-area");
+
+// ------------------ Rendering ------------------
+
+function setMode(mode) {
+  currentMode = mode;
+  questions = mode === "film" ? filmQuestions : literatureQuestions;
+  currentIndex = 0;
+  hasScoredCurrentQuestion = false;
+  feedbackEl.textContent = "";
+  feedbackEl.classList.remove("error");
+  // Optional: keep cumulative score, so don't reset score itself.
+  // If you prefer per-mode scoring, uncomment the next line:
+  // score = 0;
+
+  // Update background class on body
+  document.body.classList.remove("mode-film", "mode-literature");
+  document.body.classList.add(mode === "film" ? "mode-film" : "mode-literature");
+
+  // Toggle button styles
+  modeFilmBtn.classList.toggle("active", mode === "film");
+  modeLitBtn.classList.toggle("active", mode === "literature");
+
+  renderQuestion();
+}
 
 function renderQuestion() {
   const q = questions[currentIndex];
-  hasAnswered = false;
+  if (!q) {
+    // No more questions in this mode: simple end state
+    sceneTitleEl.textContent = "No more questions in this mode.";
+    tierLabelEl.textContent = "";
+    sceneTextEl.textContent = "Switch to the other tab or refresh to play again.";
+    questionTextEl.textContent = "";
+    answersEl.innerHTML = "";
+    return;
+  }
 
-  // Scene + meta
-  movieLabelEl.textContent = q.movie.toUpperCase();
+  hasScoredCurrentQuestion = false;
+  feedbackEl.textContent = "";
+  feedbackEl.classList.remove("error");
+
+  sceneTitleEl.textContent = q.sceneTitle;
+  tierLabelEl.textContent = q.tier;
   sceneTextEl.textContent = q.scene;
-  skillPillEl.textContent = `Skill · ${q.skill}`;
-  tierPillEl.textContent = `Tier · ${q.tier}`;
   questionTextEl.textContent = q.prompt;
 
-  // Progress
-  progressTextEl.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
-
-  // Clear old answers
+  // Render answers
   answersEl.innerHTML = "";
-  feedbackEl.textContent = "";
-  nextBtn.disabled = true;
-
-  // Shuffle answers so the correct one isn’t always in the same place
-  const shuffled = [...q.options].sort(() => Math.random() - 0.5);
-
-  shuffled.forEach((opt) => {
+  q.options.forEach((opt) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
     btn.textContent = opt.text;
-    btn.addEventListener("click", () => handleAnswerClick(btn, opt.isCorrect, q.explanation));
+    btn.addEventListener("click", () => handleAnswerClick(btn, opt.isCorrect));
     answersEl.appendChild(btn);
   });
 }
 
-function handleAnswerClick(clickedButton, isCorrect, explanation) {
-  if (hasAnswered) return; // only first click counts
-  hasAnswered = true;
-
-  // Mark buttons
-  const allButtons = document.querySelectorAll(".answer-btn");
-  allButtons.forEach((btn) => {
-    btn.disabled = true;
-    // highlight which one is correct
-    const isThisCorrect = questions[currentIndex].options.some(
-      (opt) => opt.text === btn.textContent && opt.isCorrect
-    );
-    if (isThisCorrect) {
-      btn.classList.add("correct");
-    }
-  });
-
-  if (isCorrect) {
-    clickedButton.classList.add("correct");
-    feedbackEl.textContent = "Exactly. " + explanation;
-  } else {
-    clickedButton.classList.add("incorrect");
-    feedbackEl.textContent = "Nice try. " + explanation;
-  }
-
-  // Enable next unless we’re at the last question
-  nextBtn.disabled = currentIndex >= questions.length - 1;
+function updateScoreDisplay() {
+  scoreEl.textContent = `Score: ${score}`;
 }
 
-nextBtn.addEventListener("click", () => {
-  if (currentIndex < questions.length - 1) {
-    currentIndex++;
-    renderQuestion();
+// ------------------ Interaction ------------------
+
+function handleAnswerClick(button, isCorrect) {
+  // Prevent double-processing while animation is running
+  const buttons = Array.from(document.querySelectorAll(".answer-btn"));
+  if (buttons.some((b) => b.disabled && b.classList.contains("correct"))) {
+    return;
+  }
+
+  if (isCorrect) {
+    // Mark correct option
+    buttons.forEach((b) => {
+      const match = questions[currentIndex].options.find(
+        (opt) => opt.text === b.textContent
+      );
+      if (match && match.isCorrect) {
+        b.classList.add("correct");
+      }
+      b.disabled = true;
+    });
+
+    if (!hasScoredCurrentQuestion) {
+      score += 1;
+      hasScoredCurrentQuestion = true;
+      updateScoreDisplay();
+    }
+
+    feedbackEl.textContent = "Correct!";
+    feedbackEl.classList.remove("error");
+
+    // Advance to next question after a short pause
+    setTimeout(() => {
+      currentIndex += 1;
+      if (currentIndex >= questions.length) {
+        // Wrap around to start of this mode
+        currentIndex = 0;
+      }
+      renderQuestion();
+    }, 650);
+  } else {
+    // Incorrect: shake + message
+    button.classList.add("incorrect");
+    feedbackEl.textContent = "Incorrect answer. Try again.";
+    feedbackEl.classList.add("error");
+
+    // Shake the whole game area
+    gameAreaEl.classList.remove("shake");
+    void gameAreaEl.offsetWidth; // force reflow to restart animation
+    gameAreaEl.classList.add("shake");
+
+    setTimeout(() => {
+      gameAreaEl.classList.remove("shake");
+      button.classList.remove("incorrect");
+    }, 300);
+  }
+}
+
+// ------------------ Wiring up screens ------------------
+
+playBtn.addEventListener("click", () => {
+  // Switch from landing to game
+  landingScreen.classList.add("hidden");
+  gameScreen.classList.remove("hidden");
+  document.body.classList.remove("landing");
+  // Default mode: film
+  setMode("film");
+  updateScoreDisplay();
+});
+
+modeFilmBtn.addEventListener("click", () => {
+  if (currentMode !== "film") {
+    setMode("film");
   }
 });
 
-// Initial render
-renderQuestion();
+modeLitBtn.addEventListener("click", () => {
+  if (currentMode !== "literature") {
+    setMode("literature");
+  }
+});
+
+// No need to render immediately; game starts after Play is clicked.
