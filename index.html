@@ -6,109 +6,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    /* --- Global layout --- */
-    body {
+    /* --- Page background + overlay --- */
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+    }
+
+    body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #21001f; /* deep plum */
+      background-color: #340c44; /* solid plum */
       color: #f7efe3;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      position: relative;
+      overflow: hidden;
     }
 
-    .frame {
-      border-radius: 20px;
-      padding: 3px;
-      background: linear-gradient(135deg, #d4af37, #8c6f2f); /* bronze/gold trim */
-      box-shadow:
-        0 0 0 2px rgba(0, 0, 0, 0.6),
-        0 24px 50px rgba(0, 0, 0, 0.7);
-      max-width: 900px;
-      width: 95%;
+    /* Library illustration overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("library-overlay.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      pointer-events: none; /* keep clicks working */
+      z-index: 0;
     }
 
-    .inner {
-      background: radial-gradient(circle at top, #3a0840 0, #150016 55%, #0b000d 100%);
-      border-radius: 17px;
-      padding: 24px 28px 28px;
+    /* Root container for gameplay */
+    .page-root {
+      position: relative;
+      z-index: 1; /* sits above overlay */
+      width: 100%;
+      max-width: 960px;
+      padding: 24px;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Main gameplay panel, centered in the “screen” area */
+    .panel {
+      width: 100%;
+      max-width: 840px;
+      border-radius: 18px;
+      padding: 22px 24px 24px;
+      box-sizing: border-box;
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.82));
+      border: 1px solid rgba(230, 190, 120, 0.8);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.6),
+        0 24px 50px rgba(0, 0, 0, 0.9);
     }
 
     /* --- Header --- */
     .game-header {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.45);
-      padding-bottom: 12px;
-    }
-
-    .title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      padding-bottom: 10px;
     }
 
     .logo-text {
-      font-size: 1.4rem;
-      letter-spacing: 0.07em;
+      font-size: 1.2rem;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       color: #f7efe3;
     }
 
-    .subtitle {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      color: #f6d99c;
-    }
-
-    .badge-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 4px 10px;
+    /* Optional small tag line — feel free to delete this block if you want it even cleaner */
+    .tagline {
       font-size: 0.75rem;
-      border: 1px solid rgba(244, 214, 145, 0.7);
-      background: rgba(0, 0, 0, 0.28);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge span.emoji {
-      font-size: 1rem;
+      opacity: 0.75;
+      color: #f6d99c;
+      margin-top: 4px;
     }
 
     /* --- Question Card --- */
     .card {
       border-radius: 14px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      background: radial-gradient(circle at top left, rgba(255, 215, 160, 0.12), transparent 55%);
-      padding: 18px 18px 20px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: radial-gradient(circle at top left, rgba(255, 215, 160, 0.12), transparent 60%);
+      padding: 16px 16px 18px;
       box-sizing: border-box;
     }
 
     .scene-label {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       color: #f6d99c;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       opacity: 0.9;
     }
 
     .scene-text {
       font-size: 0.95rem;
       line-height: 1.5;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #f8f1e5;
     }
 
@@ -138,28 +142,29 @@
 
     /* --- Answers --- */
     .answers {
-      margin-top: 16px;
+      margin-top: 14px;
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
     .answer-btn {
       text-align: left;
       border-radius: 999px;
       border: 1px solid rgba(244, 214, 145, 0.4);
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.55);
       color: #f7efe3;
-      padding: 10px 16px;
+      padding: 9px 15px;
       font-size: 0.95rem;
       cursor: pointer;
-      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, border-color 0.08s ease-out, background 0.08s ease-out;
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out,
+        border-color 0.08s ease-out, background 0.08s ease-out;
     }
 
-    .answer-btn:hover {
+    .answer-btn:hover:not(:disabled) {
       transform: translateY(-1px);
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
       border-color: rgba(247, 231, 180, 0.8);
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .answer-btn.correct {
@@ -211,30 +216,29 @@
       color: #f6e1b2;
     }
 
-    @media (max-width: 600px) {
-      .inner {
-        padding: 18px 14px 20px;
+    @media (max-width: 768px) {
+      .panel {
+        padding: 18px;
+      }
+      .card {
+        padding: 14px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <div class="inner">
+  <div class="page-root">
+    <main class="panel">
       <header class="game-header">
-        <div class="title-block">
-          <div class="logo-text">Fox & Owl Story Studio</div>
-          <div class="subtitle">Simple language · deep thinking · clear evidence</div>
-          <div class="badge-row">
-            <div class="badge"><span class="emoji">🔥</span><span>Firefly · High School</span></div>
-            <div class="badge"><span class="emoji">🦊</span><span>Fox · College</span></div>
-            <div class="badge"><span class="emoji">🦉</span><span>Owl · PhD</span></div>
-          </div>
+        <div>
+          <div class="logo-text">FOX & OWL STORY STUDIO</div>
+          <!-- Remove this line entirely if you want zero tagline text -->
+          <div class="tagline">Simple language · deep thinking</div>
         </div>
       </header>
 
       <section class="card">
-        <div class="scene-label" id="movie-label">INSIDE OUT · Scene 1</div>
+        <div class="scene-label" id="movie-label">INSIDE OUT</div>
         <div class="scene-text" id="scene-text"></div>
 
         <div class="meta-row">
@@ -255,7 +259,7 @@
           </button>
         </div>
       </section>
-    </div>
+    </main>
   </div>
 
   <script src="questions.js"></script>
