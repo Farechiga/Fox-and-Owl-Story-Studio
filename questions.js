@@ -118,7 +118,7 @@ function renderQuestion() {
   hasAnswered = false;
 
   // Scene + meta
-  movieLabelEl.textContent = `${q.movie.toUpperCase()} · Scene ${currentIndex + 1}`;
+  movieLabelEl.textContent = q.movie.toUpperCase();
   sceneTextEl.textContent = q.scene;
   skillPillEl.textContent = `Skill · ${q.skill}`;
   tierPillEl.textContent = `Tier · ${q.tier}`;
