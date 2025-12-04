@@ -2,7 +2,7 @@
 
 // ------------------ Question banks ------------------
 
-// Film questions (e.g., Inside Out)
+// Film questions (Inside Out)
 const filmQuestions = [
   {
     id: "film-1",
@@ -88,7 +88,7 @@ const filmQuestions = [
   }
 ];
 
-// Literature questions (generic reading-scene style)
+// Literature questions
 const literatureQuestions = [
   {
     id: "lit-1",
@@ -151,8 +151,7 @@ const literatureQuestions = [
     scene:
       "A boy rereads the final chapter of his favorite fantasy novel. " +
       "He smiles when the kingdom is saved, but his eyes fill with tears as he closes the book and hugs it to his chest.",
-    prompt:
-      "What deeper idea about reading does this scene show?",
+    prompt: "What deeper idea about reading does this scene show?",
     options: [
       {
         text: "Stories can give both comfort and sadness at the same time because readers care about the world they are leaving.",
@@ -176,8 +175,8 @@ const literatureQuestions = [
 
 // ------------------ Game state ------------------
 
-let currentMode = "film"; // "film" or "literature"
-let questions = filmQuestions;
+let currentMode = "literature"; // default mode
+let questions = literatureQuestions;
 let currentIndex = 0;
 let score = 0;
 let hasScoredCurrentQuestion = false;
@@ -208,15 +207,10 @@ function setMode(mode) {
   hasScoredCurrentQuestion = false;
   feedbackEl.textContent = "";
   feedbackEl.classList.remove("error");
-  // Optional: keep cumulative score, so don't reset score itself.
-  // If you prefer per-mode scoring, uncomment the next line:
-  // score = 0;
 
-  // Update background class on body
   document.body.classList.remove("mode-film", "mode-literature");
   document.body.classList.add(mode === "film" ? "mode-film" : "mode-literature");
 
-  // Toggle button styles
   modeFilmBtn.classList.toggle("active", mode === "film");
   modeLitBtn.classList.toggle("active", mode === "literature");
 
@@ -226,7 +220,6 @@ function setMode(mode) {
 function renderQuestion() {
   const q = questions[currentIndex];
   if (!q) {
-    // No more questions in this mode: simple end state
     sceneTitleEl.textContent = "No more questions in this mode.";
     tierLabelEl.textContent = "";
     sceneTextEl.textContent = "Switch to the other tab or refresh to play again.";
@@ -244,7 +237,6 @@ function renderQuestion() {
   sceneTextEl.textContent = q.scene;
   questionTextEl.textContent = q.prompt;
 
-  // Render answers
   answersEl.innerHTML = "";
   q.options.forEach((opt) => {
     const btn = document.createElement("button");
@@ -262,14 +254,12 @@ function updateScoreDisplay() {
 // ------------------ Interaction ------------------
 
 function handleAnswerClick(button, isCorrect) {
-  // Prevent double-processing while animation is running
   const buttons = Array.from(document.querySelectorAll(".answer-btn"));
   if (buttons.some((b) => b.disabled && b.classList.contains("correct"))) {
     return;
   }
 
   if (isCorrect) {
-    // Mark correct option
     buttons.forEach((b) => {
       const match = questions[currentIndex].options.find(
         (opt) => opt.text === b.textContent
@@ -289,24 +279,18 @@ function handleAnswerClick(button, isCorrect) {
     feedbackEl.textContent = "Correct!";
     feedbackEl.classList.remove("error");
 
-    // Advance to next question after a short pause
     setTimeout(() => {
       currentIndex += 1;
-      if (currentIndex >= questions.length) {
-        // Wrap around to start of this mode
-        currentIndex = 0;
-      }
+      if (currentIndex >= questions.length) currentIndex = 0;
       renderQuestion();
     }, 650);
   } else {
-    // Incorrect: shake + message
     button.classList.add("incorrect");
     feedbackEl.textContent = "Incorrect answer. Try again.";
     feedbackEl.classList.add("error");
 
-    // Shake the whole game area
     gameAreaEl.classList.remove("shake");
-    void gameAreaEl.offsetWidth; // force reflow to restart animation
+    void gameAreaEl.offsetWidth;
     gameAreaEl.classList.add("shake");
 
     setTimeout(() => {
@@ -316,28 +300,23 @@ function handleAnswerClick(button, isCorrect) {
   }
 }
 
-// ------------------ Wiring up screens ------------------
+// ------------------ Screen wiring ------------------
 
+// Start game in Literature mode when Play is clicked
 playBtn.addEventListener("click", () => {
-  // Switch from landing to game
   landingScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   document.body.classList.remove("landing");
-  // Default mode: film
-  setMode("film");
+  setMode("literature");      // <-- Always start in literature
   updateScoreDisplay();
 });
 
 modeFilmBtn.addEventListener("click", () => {
-  if (currentMode !== "film") {
-    setMode("film");
-  }
+  if (currentMode !== "film") setMode("film");
 });
 
 modeLitBtn.addEventListener("click", () => {
-  if (currentMode !== "literature") {
-    setMode("literature");
-  }
+  if (currentMode !== "literature") setMode("literature");
 });
 
-// No need to render immediately; game starts after Play is clicked.
+// No initial render: we only render after Play is pressed.
