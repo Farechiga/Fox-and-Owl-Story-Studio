@@ -5,8 +5,9 @@
 // Film questions (Inside Out and other films)
 const filmQuestions = [
   {
-    id: "film-1",
-    sceneTitle: "Scene – Inside Out",
+    id: "film-insideout-1",
+    source: "Inside Out",
+    sceneTitle: "Scene – Dinner Table Check-In",
     tier: "Firefly",
     scene:
       "Joy watches Riley at dinner. Riley forces a big smile and says her day was 'fine,' " +
@@ -32,8 +33,9 @@ const filmQuestions = [
     ]
   },
   {
-    id: "film-2",
-    sceneTitle: "Scene – Inside Out",
+    id: "film-insideout-2",
+    source: "Inside Out",
+    sceneTitle: "Scene – Packing the Hockey Jersey",
     tier: "Fox",
     scene:
       "Riley sits alone on her bed in the new house, holding her old hockey jersey. " +
@@ -59,8 +61,9 @@ const filmQuestions = [
     ]
   },
   {
-    id: "film-3",
-    sceneTitle: "Scene – Inside Out",
+    id: "film-insideout-3",
+    source: "Inside Out",
+    sceneTitle: "Scene – Joy and Sadness Share a Memory",
     tier: "Owl",
     scene:
       "Inside Riley’s mind, Joy and Sadness finally sit together with a glowing core memory. " +
@@ -87,7 +90,7 @@ const filmQuestions = [
     ]
   }
 
-  // --- Add more film questions here (Inside Out or other movies) ---
+  // --- Add more film questions here (other Inside Out scenes or other movies) ---
 ];
 
 // Literature questions (Pages & Co – The Bookwanderers and other books)
@@ -95,8 +98,9 @@ const literatureQuestions = [
   // Pages & Co – The Bookwanderers
 
   {
-    id: "lit-1",
-    sceneTitle: "Scene – Quiet morning in the bookshop",
+    id: "lit-pagesco-bookwanderers-1",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Quiet morning in the bookshop",
     tier: "Firefly",
     scene:
       "Tilly curls up with a book in a quiet corner while her grandparents work behind the counter. " +
@@ -122,8 +126,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-2",
-    sceneTitle: "Scene – A customer asks for a recommendation",
+    id: "lit-pagesco-bookwanderers-2",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "A customer asks for a recommendation",
     tier: "Firefly",
     scene:
       "A customer comes in and asks Tilly’s grandparent to help them find a book. " +
@@ -149,8 +154,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-3",
-    sceneTitle: "Scene – Tilly notices a character who does not belong",
+    id: "lit-pagesco-bookwanderers-3",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Tilly notices a character who does not belong",
     tier: "Fox",
     scene:
       "While shelving books, Tilly spots someone in the aisle who looks strangely familiar, " +
@@ -176,8 +182,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-4",
-    sceneTitle: "Scene – A quiet, worried whisper",
+    id: "lit-pagesco-bookwanderers-4",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "A quiet, worried whisper",
     tier: "Firefly",
     scene:
       "Tilly hears one grandparent whisper something worried about her mother when they think she is not listening.",
@@ -202,8 +209,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-5",
-    sceneTitle: "Scene – Tilly steps a little too far into a story",
+    id: "lit-pagesco-bookwanderers-5",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Tilly steps a little too far into a story",
     tier: "Fox",
     scene:
       "As Tilly reads, the world of the book seems to open around her. " +
@@ -229,8 +237,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-6",
-    sceneTitle: "Scene – An argument about rules",
+    id: "lit-pagesco-bookwanderers-6",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "An argument about rules",
     tier: "Firefly",
     scene:
       "After a strange bookish incident, a grandparent gently scolds Tilly and warns her to follow certain rules in the shop. " +
@@ -256,8 +265,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-7",
-    sceneTitle: "Scene – Tilly faces a choice between staying or stepping in",
+    id: "lit-pagesco-bookwanderers-7",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Tilly faces a choice between staying or stepping in",
     tier: "Fox",
     scene:
       "Standing at the edge of a book world, Tilly hesitates. She can stay in the safe bookshop, " +
@@ -283,8 +293,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-8",
-    sceneTitle: "Scene – A clue about her mother’s past",
+    id: "lit-pagesco-bookwanderers-8",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "A clue about her mother’s past",
     tier: "Owl",
     scene:
       "Tilly finds an old note tucked inside a book that seems to be linked to her mother. " +
@@ -310,8 +321,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-9",
-    sceneTitle: "Scene – A small disaster in the shop",
+    id: "lit-pagesco-bookwanderers-9",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "A small disaster in the shop",
     tier: "Firefly",
     scene:
       "A stack of books collapses after something strange happens near the shelves. " +
@@ -337,8 +349,9 @@ const literatureQuestions = [
     ]
   },
   {
-    id: "lit-10",
-    sceneTitle: "Scene – Late-night reflection",
+    id: "lit-pagesco-bookwanderers-10",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Late-night reflection",
     tier: "Owl",
     scene:
       "That night, Tilly lies awake thinking about everything that has happened—the strange figure, the note, " +
@@ -364,13 +377,14 @@ const literatureQuestions = [
     ]
   }
 
-  // --- Add more literature questions here (for this or other books/series) ---
+  // --- Add more literature questions here (for other books/series) ---
 ];
 
 // ------------------ Game state ------------------
 
 let currentMode = "literature"; // default mode
 let questions = literatureQuestions;
+let questionOrder = []; // array of indices in randomized order
 let currentIndex = 0;
 let score = 0;
 let hasScoredCurrentQuestion = false;
@@ -392,12 +406,28 @@ const feedbackEl = document.getElementById("feedback");
 const scoreEl = document.getElementById("score");
 const gameAreaEl = document.getElementById("game-area");
 
+// ------------------ Helpers ------------------
+
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function buildQuestionOrder() {
+  const indices = questions.map((_, index) => index);
+  questionOrder = shuffleArray(indices);
+  currentIndex = 0;
+}
+
 // ------------------ Rendering ------------------
 
 function setMode(mode) {
   currentMode = mode;
   questions = mode === "film" ? filmQuestions : literatureQuestions;
-  currentIndex = 0;
   hasScoredCurrentQuestion = false;
   feedbackEl.textContent = "";
   feedbackEl.classList.remove("error");
@@ -408,11 +438,18 @@ function setMode(mode) {
   modeFilmBtn.classList.toggle("active", mode === "film");
   modeLitBtn.classList.toggle("active", mode === "literature");
 
+  buildQuestionOrder();
   renderQuestion();
 }
 
+function getCurrentQuestion() {
+  if (!questionOrder.length) return null;
+  const questionIndex = questionOrder[currentIndex];
+  return questions[questionIndex];
+}
+
 function renderQuestion() {
-  const q = questions[currentIndex];
+  const q = getCurrentQuestion();
   if (!q) {
     sceneTitleEl.textContent = "No more questions in this mode.";
     tierLabelEl.textContent = "";
@@ -426,17 +463,24 @@ function renderQuestion() {
   feedbackEl.textContent = "";
   feedbackEl.classList.remove("error");
 
-  sceneTitleEl.textContent = q.sceneTitle;
+  const prefix = q.source ? q.source + " – " : "";
+  sceneTitleEl.textContent = prefix + q.sceneTitle;
   tierLabelEl.textContent = q.tier;
   sceneTextEl.textContent = q.scene;
   questionTextEl.textContent = q.prompt;
 
+  // Shuffle answer options so correct isn’t always first
+  const shuffledOptions = shuffleArray(q.options);
+
   answersEl.innerHTML = "";
-  q.options.forEach((opt) => {
+  shuffledOptions.forEach((opt) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
     btn.textContent = opt.text;
-    btn.addEventListener("click", () => handleAnswerClick(btn, opt.isCorrect));
+    if (opt.isCorrect) {
+      btn.dataset.correct = "true";
+    }
+    btn.addEventListener("click", () => handleAnswerClick(btn, !!opt.isCorrect));
     answersEl.appendChild(btn);
   });
 }
@@ -449,16 +493,15 @@ function updateScoreDisplay() {
 
 function handleAnswerClick(button, isCorrect) {
   const buttons = Array.from(document.querySelectorAll(".answer-btn"));
+  // If we already revealed the correct answer, ignore further clicks
   if (buttons.some((b) => b.disabled && b.classList.contains("correct"))) {
     return;
   }
 
   if (isCorrect) {
+    // Mark all correct options and lock buttons
     buttons.forEach((b) => {
-      const match = questions[currentIndex].options.find(
-        (opt) => opt.text === b.textContent
-      );
-      if (match && match.isCorrect) {
+      if (b.dataset.correct === "true") {
         b.classList.add("correct");
       }
       b.disabled = true;
@@ -475,7 +518,10 @@ function handleAnswerClick(button, isCorrect) {
 
     setTimeout(() => {
       currentIndex += 1;
-      if (currentIndex >= questions.length) currentIndex = 0;
+      if (currentIndex >= questionOrder.length) {
+        // Finished a pass through this mode – reshuffle and start again
+        buildQuestionOrder();
+      }
       renderQuestion();
     }, 650);
   } else {
@@ -484,7 +530,7 @@ function handleAnswerClick(button, isCorrect) {
     feedbackEl.classList.add("error");
 
     gameAreaEl.classList.remove("shake");
-    void gameAreaEl.offsetWidth;
+    void gameAreaEl.offsetWidth; // reflow to restart animation
     gameAreaEl.classList.add("shake");
 
     setTimeout(() => {
