@@ -2,7 +2,7 @@
 
 // ------------------ Question banks ------------------
 
-// Film questions (Inside Out)
+// Film questions (Inside Out and other films)
 const filmQuestions = [
   {
     id: "film-1",
@@ -86,91 +86,285 @@ const filmQuestions = [
       }
     ]
   }
+
+  // --- Add more film questions here (Inside Out or other movies) ---
 ];
 
-// Literature questions
+// Literature questions (Pages & Co – The Bookwanderers and other books)
 const literatureQuestions = [
+  // Pages & Co – The Bookwanderers
+
   {
     id: "lit-1",
-    sceneTitle: "Scene – Quiet Reading Nook",
+    sceneTitle: "Scene – Quiet morning in the bookshop",
     tier: "Firefly",
     scene:
-      "A girl curls up in the corner of the library with a mystery novel. " +
-      "She reads the same paragraph twice, then suddenly sits up straighter and flips back two pages.",
-    prompt: "What most likely made her sit up and flip back?",
+      "Tilly curls up with a book in a quiet corner while her grandparents work behind the counter. " +
+      "The shop feels safe, and the real world seems to fade as she reads.",
+    prompt: "What is the main purpose of this quiet bookshop moment for Tilly?",
     options: [
       {
-        text: "She noticed a small clue she had missed before and wants to re-check what the author hinted at.",
+        text: "It shows that the bookshop feels like a safe home where she can disappear into stories.",
         isCorrect: true
       },
       {
-        text: "She realized the book is too long and wants to skip ahead to the ending.",
+        text: "It proves that she does not like talking to her grandparents very much.",
         isCorrect: false
       },
       {
-        text: "She remembered she left another book at home and wants to think about that one instead.",
+        text: "It shows she is bored and wishes she could be anywhere else but the shop.",
         isCorrect: false
       },
       {
-        text: "She decided she should stop reading mysteries and switch to cookbooks.",
+        text: "It mainly explains how the cash register and shelves are organized in the store.",
         isCorrect: false
       }
     ]
   },
   {
     id: "lit-2",
-    sceneTitle: "Scene – School Story Circle",
-    tier: "Fox",
+    sceneTitle: "Scene – A customer asks for a recommendation",
+    tier: "Firefly",
     scene:
-      "During story time, the teacher pauses after a chapter where the hero fails badly. " +
-      "Half the class looks disappointed; the other half looks curious and leans in.",
-    prompt: "What is the author most likely doing with this moment in the story?",
+      "A customer comes in and asks Tilly’s grandparent to help them find a book. " +
+      "Tilly listens closely as they ask questions and suggest stories.",
+    prompt: "What theme does this scene hint at when Tilly watches the book recommendation?",
     options: [
       {
-        text: "Using the failure to build tension so that a later success will feel more satisfying.",
+        text: "Stories can connect people and help them feel understood.",
         isCorrect: true
       },
       {
-        text: "Trying to convince readers that the hero is lazy and not worth caring about.",
+        text: "Only adults can truly understand books and choose them correctly.",
         isCorrect: false
       },
       {
-        text: "Stopping the plot so the teacher has something to talk about in class.",
+        text: "Reading is mostly about showing off how smart you are.",
         isCorrect: false
       },
       {
-        text: "Showing that only perfect characters belong in books.",
+        text: "Bookshops are mainly useful for keeping kids busy after school.",
         isCorrect: false
       }
     ]
   },
   {
     id: "lit-3",
-    sceneTitle: "Scene – Favorite Book Re-Read",
-    tier: "Owl",
+    sceneTitle: "Scene – Tilly notices a character who does not belong",
+    tier: "Fox",
     scene:
-      "A boy rereads the final chapter of his favorite fantasy novel. " +
-      "He smiles when the kingdom is saved, but his eyes fill with tears as he closes the book and hugs it to his chest.",
-    prompt: "What deeper idea about reading does this scene show?",
+      "While shelving books, Tilly spots someone in the aisle who looks strangely familiar, " +
+      "as if they stepped out of one of her favorite stories.",
+    prompt: "What might this strange, familiar figure symbolize for Tilly?",
     options: [
       {
-        text: "Stories can give both comfort and sadness at the same time because readers care about the world they are leaving.",
+        text: "The line between stories and real life beginning to blur for her.",
         isCorrect: true
       },
       {
-        text: "Books should always end with jokes so that readers never feel mixed emotions.",
+        text: "Her need to stop reading and focus only on real-world chores.",
         isCorrect: false
       },
       {
-        text: "Reading is only useful for learning facts, not for feeling anything strongly.",
+        text: "A warning that the bookshop is about to close forever.",
         isCorrect: false
       },
       {
-        text: "Readers should avoid rereading books because the ending will feel weaker each time.",
+        text: "A sign that she should never trust the characters in her books again.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-4",
+    sceneTitle: "Scene – A quiet, worried whisper",
+    tier: "Firefly",
+    scene:
+      "Tilly hears one grandparent whisper something worried about her mother when they think she is not listening.",
+    prompt: "What does this whisper most likely show about the grandparents’ motivation?",
+    options: [
+      {
+        text: "They are trying to protect Tilly by keeping hard questions about her mother away from her.",
+        isCorrect: true
+      },
+      {
+        text: "They do not care about Tilly’s feelings and just want to talk in secret.",
+        isCorrect: false
+      },
+      {
+        text: "They want Tilly to stop reading and focus only on housework.",
+        isCorrect: false
+      },
+      {
+        text: "They are planning to send Tilly away to live in another country.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-5",
+    sceneTitle: "Scene – Tilly steps a little too far into a story",
+    tier: "Fox",
+    scene:
+      "As Tilly reads, the world of the book seems to open around her. " +
+      "She leans in, feeling the pull of the story as if it is inviting her to step inside.",
+    prompt: "How does this scene gently push the story forward?",
+    options: [
+      {
+        text: "It shows the first clear moment when stories start to become real for Tilly.",
+        isCorrect: true
+      },
+      {
+        text: "It explains exactly how every magic rule in the story world works.",
+        isCorrect: false
+      },
+      {
+        text: "It ends her connection to books so she can focus on real life only.",
+        isCorrect: false
+      },
+      {
+        text: "It mainly fills time so there can be more description of furniture.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-6",
+    sceneTitle: "Scene – An argument about rules",
+    tier: "Firefly",
+    scene:
+      "After a strange bookish incident, a grandparent gently scolds Tilly and warns her to follow certain rules in the shop. " +
+      "Tilly feels frustrated but also curious.",
+    prompt: "What small change in the relationship happens in this moment?",
+    options: [
+      {
+        text: "Tilly begins to see that her grandparents’ strictness might come from worry and love, not just control.",
+        isCorrect: true
+      },
+      {
+        text: "Her grandparents stop caring about her completely and ignore her from then on.",
+        isCorrect: false
+      },
+      {
+        text: "Tilly decides she never wants to talk to her grandparents again.",
+        isCorrect: false
+      },
+      {
+        text: "The grandparents decide that Tilly should run the whole shop alone.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-7",
+    sceneTitle: "Scene – Tilly faces a choice between staying or stepping in",
+    tier: "Fox",
+    scene:
+      "Standing at the edge of a book world, Tilly hesitates. She can stay in the safe bookshop, " +
+      "or take a step that might change everything.",
+    prompt: "What most clearly drives Tilly’s hesitation in this moment?",
+    options: [
+      {
+        text: "She wants adventure but is also afraid of what might happen if she leaves the safety of the shop.",
+        isCorrect: true
+      },
+      {
+        text: "She is only worried about being late for dinner and getting hungry.",
+        isCorrect: false
+      },
+      {
+        text: "She dislikes reading and is trying to avoid opening the book at all.",
+        isCorrect: false
+      },
+      {
+        text: "She wants to sell the book for money instead of reading it.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-8",
+    sceneTitle: "Scene – A clue about her mother’s past",
+    tier: "Owl",
+    scene:
+      "Tilly finds an old note tucked inside a book that seems to be linked to her mother. " +
+      "The handwriting and words feel strangely personal.",
+    prompt: "What deeper idea does this hidden note suggest about Tilly’s story?",
+    options: [
+      {
+        text: "Her search for family and identity is tied closely to the world of books.",
+        isCorrect: true
+      },
+      {
+        text: "Her mother never cared about reading and avoided the bookshop.",
+        isCorrect: false
+      },
+      {
+        text: "The note proves that books are dangerous and should be locked away.",
+        isCorrect: false
+      },
+      {
+        text: "The main point of the story is only about protecting old paper and ink.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-9",
+    sceneTitle: "Scene – A small disaster in the shop",
+    tier: "Firefly",
+    scene:
+      "A stack of books collapses after something strange happens near the shelves. " +
+      "Tilly and her grandparents rush to pick everything up.",
+    prompt: "What emotional shift happens in this messy moment?",
+    options: [
+      {
+        text: "The mood jumps from calm and ordinary to tense and alarmed as everyone realizes something unusual is going on.",
+        isCorrect: true
+      },
+      {
+        text: "Everyone in the shop becomes sleepy and relaxed as the books fall.",
+        isCorrect: false
+      },
+      {
+        text: "The characters stop caring about the books completely and walk away.",
+        isCorrect: false
+      },
+      {
+        text: "The scene stays exactly the same, with no real change in feeling.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-10",
+    sceneTitle: "Scene – Late-night reflection",
+    tier: "Owl",
+    scene:
+      "That night, Tilly lies awake thinking about everything that has happened—the strange figure, the note, " +
+      "and how real her reading felt.",
+    prompt: "How does this late-night scene deepen the story?",
+    options: [
+      {
+        text: "It shows Tilly starting to connect all the strange clues and sense that her life and books are tangled together.",
+        isCorrect: true
+      },
+      {
+        text: "It mostly repeats details from earlier without adding any new feelings or thoughts.",
+        isCorrect: false
+      },
+      {
+        text: "It exists only to describe the furniture in her room and nothing more.",
+        isCorrect: false
+      },
+      {
+        text: "It proves that Tilly has decided to stop wondering and never ask questions again.",
         isCorrect: false
       }
     ]
   }
+
+  // --- Add more literature questions here (for this or other books/series) ---
 ];
 
 // ------------------ Game state ------------------
@@ -307,7 +501,7 @@ playBtn.addEventListener("click", () => {
   landingScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   document.body.classList.remove("landing");
-  setMode("literature");      // <-- Always start in literature
+  setMode("literature"); // Always start in literature
   updateScoreDisplay();
 });
 
