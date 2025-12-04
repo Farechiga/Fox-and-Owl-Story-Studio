@@ -30,7 +30,7 @@
       overflow: hidden;
     }
 
-    /* Background overlay — only active in game modes */
+    /* Background overlay — only for game modes */
     body::before {
       content: "";
       position: fixed;
@@ -55,7 +55,6 @@
       background-image: none;
     }
 
-    /* Generic containers sit above overlays */
     .app-root {
       position: relative;
       z-index: 1;
@@ -67,7 +66,11 @@
       justify-content: center;
     }
 
-    /* ---------- Landing page ---------- */
+    .hidden {
+      display: none !important;
+    }
+
+    /* -------- Landing screen -------- */
 
     .landing-screen {
       width: 100%;
@@ -106,39 +109,16 @@
       background: rgba(0, 0, 0, 0.18);
     }
 
-    /* Hide/show helper */
-    .hidden {
-      display: none;
-    }
-
-    /* ---------- Game screen ---------- */
+    /* -------- Game screen -------- */
 
     .game-screen {
       width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
     }
 
-    /* Keep the main play area centered in the “screen” space */
-    .game-area {
-      width: 100%;
-      max-width: 900px;
-      margin: 90px auto 40px;
-      padding: 24px 26px 28px;
-      box-sizing: border-box;
-      border-radius: 18px;
-      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.85));
-      border: 1px solid rgba(189, 155, 64, 0.9);
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.5),
-        0 24px 50px rgba(0, 0, 0, 0.85);
-    }
-
-    /* Mode toggle at the top center */
     .mode-toggle-wrapper {
       position: absolute;
       top: 26px;
@@ -171,7 +151,20 @@
       color: var(--gold);
     }
 
-    /* Header line: scene + tier */
+    .game-area {
+      width: 100%;
+      max-width: 900px;
+      margin: 110px auto 40px;
+      padding: 24px 26px 28px;
+      box-sizing: border-box;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.85));
+      border: 1px solid rgba(189, 155, 64, 0.9);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.5),
+        0 24px 50px rgba(0, 0, 0, 0.85);
+    }
+
     .header-row {
       display: flex;
       justify-content: space-between;
@@ -258,7 +251,6 @@
       color: var(--gold);
     }
 
-    /* Shake animation for incorrect answers */
     @keyframes shake {
       0% { transform: translateX(0); }
       20% { transform: translateX(-6px); }
@@ -274,7 +266,7 @@
 
     @media (max-width: 900px) {
       .game-area {
-        margin-top: 70px;
+        margin-top: 80px;
         padding: 18px 16px 22px;
       }
     }
@@ -294,15 +286,13 @@
 
     <!-- Game Screen -->
     <section id="game-screen" class="game-screen hidden">
-      <!-- Toggle -->
       <div class="mode-toggle-wrapper">
         <div class="mode-toggle">
-          <button id="mode-film" class="mode-btn active" data-mode="film">Film</button>
-          <button id="mode-literature" class="mode-btn" data-mode="literature">Literature</button>
+          <button id="mode-film" class="mode-btn" data-mode="film">Film</button>
+          <button id="mode-literature" class="mode-btn active" data-mode="literature">Literature</button>
         </div>
       </div>
 
-      <!-- Centered gameplay area -->
       <div id="game-area" class="game-area">
         <div class="header-row">
           <div id="scene-title" class="scene-title">Scene –</div>
