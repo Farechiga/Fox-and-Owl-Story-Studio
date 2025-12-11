@@ -1,14 +1,59 @@
 // questions.js
 
+// ------------------ Seven Gates metadata ------------------
+
+// Official Seven Gates dictionary (icons + descriptions)
+const GATE_INFO = {
+  IdentityTension: {
+    icon: "🎭",
+    label: "Identity Tension",
+    meaning: "Character questions who they are or who they are becoming"
+  },
+  RelationshipShift: {
+    icon: "🫂",
+    label: "Relationship Shift",
+    meaning: "Something changes (even slightly) between characters"
+  },
+  EmotionalContradiction: {
+    icon: "🎨",
+    label: "Emotional Contradiction",
+    meaning: "Two emotions are present at once"
+  },
+  ThresholdMoment: {
+    icon: "🚪",
+    label: "Threshold Moment",
+    meaning: "Character must choose whether to step into something new"
+  },
+  SecretExchange: {
+    icon: "✉️",
+    label: "Secret Exchange",
+    meaning:
+      "Something is hidden, half-revealed, shared quietly, or concealed"
+  },
+  WorldLogicShift: {
+    icon: "🔮",
+    label: "World-Logic Shift",
+    meaning: "Reality bends; magic or strangeness appears"
+  },
+  EmotionalEcho: {
+    icon: "📆",
+    label: "Emotional Echo",
+    meaning: "A repeated moment takes on new emotional meaning"
+  }
+};
+
 // ------------------ Question banks ------------------
 
-// Film questions (Inside Out and other films)
+// Film questions (Inside Out)
 const filmQuestions = [
   {
     id: "film-insideout-1",
     source: "Inside Out",
-    sceneTitle: "Scene – Dinner Table Check-In",
+    sceneTitle: "Dinner table check-in",
     tier: "Firefly",
+    gates: ["EmotionalContradiction", "RelationshipShift"],
+    gateIcons: ["🎨", "🫂"],
+    skill: "Emotional Beat Shift",
     scene:
       "Joy watches Riley at dinner. Riley forces a big smile and says her day was 'fine,' " +
       "but her eyes look tired and she keeps poking her food instead of eating.",
@@ -35,8 +80,11 @@ const filmQuestions = [
   {
     id: "film-insideout-2",
     source: "Inside Out",
-    sceneTitle: "Scene – Packing the Hockey Jersey",
+    sceneTitle: "Packing the hockey jersey",
     tier: "Fox",
+    gates: ["EmotionalContradiction", "EmotionalEcho"],
+    gateIcons: ["🎨", "📆"],
+    skill: "Scene Purpose",
     scene:
       "Riley sits alone on her bed in the new house, holding her old hockey jersey. " +
       "She runs her fingers over the team logo, then quietly folds it and places it in a box.",
@@ -63,8 +111,11 @@ const filmQuestions = [
   {
     id: "film-insideout-3",
     source: "Inside Out",
-    sceneTitle: "Scene – Joy and Sadness Share a Memory",
+    sceneTitle: "Joy and Sadness share a memory",
     tier: "Owl",
+    gates: ["EmotionalContradiction", "IdentityTension", "WorldLogicShift"],
+    gateIcons: ["🎨", "🎭", "🔮"],
+    skill: "Theme Connection",
     scene:
       "Inside Riley’s mind, Joy and Sadness finally sit together with a glowing core memory. " +
       "The memory shifts between bright yellow and soft blue as Riley remembers being comforted by her parents " +
@@ -89,302 +140,328 @@ const filmQuestions = [
       }
     ]
   }
-
-  // --- Add more film questions here (other Inside Out scenes or other movies) ---
 ];
 
-// Literature questions (Pages & Co – The Bookwanderers and other books)
+// Literature questions (Pages & Co – The Bookwanderers)
 const literatureQuestions = [
-  // Pages & Co – The Bookwanderers
-
   {
-    id: "lit-pagesco-bookwanderers-1",
+    id: "lit-pagesco-bookwanderers-21",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "Quiet morning in the bookshop",
-    tier: "Firefly",
-    scene:
-      "Tilly curls up with a book in a quiet corner while her grandparents work behind the counter. " +
-      "The shop feels safe, and the real world seems to fade as she reads.",
-    prompt: "What is the main purpose of this quiet bookshop moment for Tilly?",
-    options: [
-      {
-        text: "It shows that the bookshop feels like a safe home where she can disappear into stories.",
-        isCorrect: true
-      },
-      {
-        text: "It proves that she does not like talking to her grandparents very much.",
-        isCorrect: false
-      },
-      {
-        text: "It shows she is bored and wishes she could be anywhere else but the shop.",
-        isCorrect: false
-      },
-      {
-        text: "It mainly explains how the cash register and shelves are organized in the store.",
-        isCorrect: false
-      }
-    ]
-  },
-  {
-    id: "lit-pagesco-bookwanderers-2",
-    source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "A customer asks for a recommendation",
-    tier: "Firefly",
-    scene:
-      "A customer comes in and asks Tilly’s grandparent to help them find a book. " +
-      "Tilly listens closely as they ask questions and suggest stories.",
-    prompt: "What theme does this scene hint at when Tilly watches the book recommendation?",
-    options: [
-      {
-        text: "Stories can connect people and help them feel understood.",
-        isCorrect: true
-      },
-      {
-        text: "Only adults can truly understand books and choose them correctly.",
-        isCorrect: false
-      },
-      {
-        text: "Reading is mostly about showing off how smart you are.",
-        isCorrect: false
-      },
-      {
-        text: "Bookshops are mainly useful for keeping kids busy after school.",
-        isCorrect: false
-      }
-    ]
-  },
-  {
-    id: "lit-pagesco-bookwanderers-3",
-    source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "Tilly notices a character who does not belong",
+    sceneTitle: "The strange girl in the aisle",
     tier: "Fox",
+    gates: ["WorldLogicShift", "IdentityTension"],
+    gateIcons: ["🔮", "🎭"],
+    skill: "Symbolism",
     scene:
-      "While shelving books, Tilly spots someone in the aisle who looks strangely familiar, " +
-      "as if they stepped out of one of her favorite stories.",
-    prompt: "What might this strange, familiar figure symbolize for Tilly?",
+      "Tilly freezes when she sees a girl in an old-fashioned dress step around the corner of a shelf—" +
+      "then vanish without a sound. The air feels different, and Tilly wonders if the girl was real " +
+      "or somehow from a story she knows.",
+    prompt: "What does this strange moment most likely show about Tilly’s world?",
     options: [
       {
-        text: "The line between stories and real life beginning to blur for her.",
+        text: "Her world is starting to blend with the world of stories in a way she can feel but not explain.",
         isCorrect: true
       },
       {
-        text: "Her need to stop reading and focus only on real-world chores.",
+        text: "Her grandparents are testing her to see how fast she can organize the shelves.",
         isCorrect: false
       },
       {
-        text: "A warning that the bookshop is about to close forever.",
+        text: "Tilly is imagining things because she is tired from cleaning the shop.",
         isCorrect: false
       },
       {
-        text: "A sign that she should never trust the characters in her books again.",
+        text: "Another customer is playing a prank on her just for fun.",
         isCorrect: false
       }
     ]
   },
   {
-    id: "lit-pagesco-bookwanderers-4",
+    id: "lit-pagesco-bookwanderers-22",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "A quiet, worried whisper",
+    sceneTitle: "A quiet promise to herself",
     tier: "Firefly",
+    gates: ["IdentityTension", "ThresholdMoment"],
+    gateIcons: ["🎭", "🚪"],
+    skill: "Character Motivation",
     scene:
-      "Tilly hears one grandparent whisper something worried about her mother when they think she is not listening.",
-    prompt: "What does this whisper most likely show about the grandparents’ motivation?",
+      "After a confusing encounter, Tilly sits alone on the shop stairs and whispers that she wants " +
+      "to understand what is happening—even if it scares her a little.",
+    prompt: "What does this moment show about Tilly?",
     options: [
       {
-        text: "They are trying to protect Tilly by keeping hard questions about her mother away from her.",
+        text: "She is starting to choose curiosity even when she feels afraid.",
         isCorrect: true
       },
       {
-        text: "They do not care about Tilly’s feelings and just want to talk in secret.",
+        text: "She wants to stop thinking about books and focus only on chores.",
         isCorrect: false
       },
       {
-        text: "They want Tilly to stop reading and focus only on housework.",
+        text: "She plans to tell her classmates everything as soon as possible.",
         isCorrect: false
       },
       {
-        text: "They are planning to send Tilly away to live in another country.",
+        text: "She thinks the strange events are just accidents that do not matter.",
         isCorrect: false
       }
     ]
   },
   {
-    id: "lit-pagesco-bookwanderers-5",
+    id: "lit-pagesco-bookwanderers-23",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "Tilly steps a little too far into a story",
+    sceneTitle: "A clipped, careful conversation",
     tier: "Fox",
+    gates: ["RelationshipShift", "SecretExchange"],
+    gateIcons: ["🫂", "✉️"],
+    skill: "Relationship Change",
     scene:
-      "As Tilly reads, the world of the book seems to open around her. " +
-      "She leans in, feeling the pull of the story as if it is inviting her to step inside.",
-    prompt: "How does this scene gently push the story forward?",
+      "When Tilly asks her grandparent if they have ever seen anything odd happen in the shop, " +
+      "they pause, choose their words too slowly, and say, 'Nothing you need to worry about.'",
+    prompt: "What small shift happens in their relationship here?",
     options: [
       {
-        text: "It shows the first clear moment when stories start to become real for Tilly.",
+        text: "Tilly senses that her grandparent is hiding something to protect her, creating a quiet distance between them.",
         isCorrect: true
       },
       {
-        text: "It explains exactly how every magic rule in the story world works.",
+        text: "Tilly realizes her grandparent does not like books anymore.",
         isCorrect: false
       },
       {
-        text: "It ends her connection to books so she can focus on real life only.",
+        text: "Her grandparent becomes angry and refuses to speak to her for the rest of the day.",
         isCorrect: false
       },
       {
-        text: "It mainly fills time so there can be more description of furniture.",
+        text: "Tilly thinks her grandparent has forgotten how to answer simple questions.",
         isCorrect: false
       }
     ]
   },
   {
-    id: "lit-pagesco-bookwanderers-6",
+    id: "lit-pagesco-bookwanderers-24",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "An argument about rules",
-    tier: "Firefly",
-    scene:
-      "After a strange bookish incident, a grandparent gently scolds Tilly and warns her to follow certain rules in the shop. " +
-      "Tilly feels frustrated but also curious.",
-    prompt: "What small change in the relationship happens in this moment?",
-    options: [
-      {
-        text: "Tilly begins to see that her grandparents’ strictness might come from worry and love, not just control.",
-        isCorrect: true
-      },
-      {
-        text: "Her grandparents stop caring about her completely and ignore her from then on.",
-        isCorrect: false
-      },
-      {
-        text: "Tilly decides she never wants to talk to her grandparents again.",
-        isCorrect: false
-      },
-      {
-        text: "The grandparents decide that Tilly should run the whole shop alone.",
-        isCorrect: false
-      }
-    ]
-  },
-  {
-    id: "lit-pagesco-bookwanderers-7",
-    source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "Tilly faces a choice between staying or stepping in",
-    tier: "Fox",
-    scene:
-      "Standing at the edge of a book world, Tilly hesitates. She can stay in the safe bookshop, " +
-      "or take a step that might change everything.",
-    prompt: "What most clearly drives Tilly’s hesitation in this moment?",
-    options: [
-      {
-        text: "She wants adventure but is also afraid of what might happen if she leaves the safety of the shop.",
-        isCorrect: true
-      },
-      {
-        text: "She is only worried about being late for dinner and getting hungry.",
-        isCorrect: false
-      },
-      {
-        text: "She dislikes reading and is trying to avoid opening the book at all.",
-        isCorrect: false
-      },
-      {
-        text: "She wants to sell the book for money instead of reading it.",
-        isCorrect: false
-      }
-    ]
-  },
-  {
-    id: "lit-pagesco-bookwanderers-8",
-    source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "A clue about her mother’s past",
+    sceneTitle: "Reaching for the glowing book",
     tier: "Owl",
+    gates: ["ThresholdMoment", "WorldLogicShift"],
+    gateIcons: ["🚪", "🔮"],
+    skill: "Scene Purpose",
     scene:
-      "Tilly finds an old note tucked inside a book that seems to be linked to her mother. " +
-      "The handwriting and words feel strangely personal.",
-    prompt: "What deeper idea does this hidden note suggest about Tilly’s story?",
+      "A book on the returns trolley gives off a faint shimmer, almost like it is breathing. " +
+      "Tilly hesitates, then slowly reaches for it, unsure what will happen.",
+    prompt: "How does this moment move the story forward?",
     options: [
       {
-        text: "Her search for family and identity is tied closely to the world of books.",
+        text: "It shows Tilly taking her first deliberate step toward the mysterious world opening behind the books.",
         isCorrect: true
       },
       {
-        text: "Her mother never cared about reading and avoided the bookshop.",
+        text: "It explains exactly how every magical rule in the bookshop works.",
         isCorrect: false
       },
       {
-        text: "The note proves that books are dangerous and should be locked away.",
+        text: "It shows she wants to stop reading and spend less time with stories.",
         isCorrect: false
       },
       {
-        text: "The main point of the story is only about protecting old paper and ink.",
+        text: "It mainly gives the reader a break from the plot so they can rest.",
         isCorrect: false
       }
     ]
   },
   {
-    id: "lit-pagesco-bookwanderers-9",
+    id: "lit-pagesco-bookwanderers-25",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "A small disaster in the shop",
+    sceneTitle: "A smile that doesn't match her eyes",
     tier: "Firefly",
+    gates: ["EmotionalContradiction", "RelationshipShift"],
+    gateIcons: ["🎨", "🫂"],
+    skill: "Emotional Beat Shift",
     scene:
-      "A stack of books collapses after something strange happens near the shelves. " +
-      "Tilly and her grandparents rush to pick everything up.",
-    prompt: "What emotional shift happens in this messy moment?",
+      "Tilly’s friend at school smiles when she hears about the bookshop, but her eyes flick away, " +
+      "and her voice turns oddly flat.",
+    prompt: "What emotional shift is happening in this moment?",
     options: [
       {
-        text: "The mood jumps from calm and ordinary to tense and alarmed as everyone realizes something unusual is going on.",
+        text: "She is trying to look happy for Tilly while quietly feeling unsure or left out.",
         isCorrect: true
       },
       {
-        text: "Everyone in the shop becomes sleepy and relaxed as the books fall.",
+        text: "She is thrilled and wants to visit the shop right away.",
         isCorrect: false
       },
       {
-        text: "The characters stop caring about the books completely and walk away.",
+        text: "She is annoyed that Tilly talked to her at all.",
         isCorrect: false
       },
       {
-        text: "The scene stays exactly the same, with no real change in feeling.",
+        text: "She does not remember what a bookshop is.",
         isCorrect: false
       }
     ]
   },
   {
-    id: "lit-pagesco-bookwanderers-10",
+    id: "lit-pagesco-bookwanderers-26",
     source: "Pages & Co – The Bookwanderers",
-    sceneTitle: "Late-night reflection",
+    sceneTitle: "The note in her mother's handwriting",
     tier: "Owl",
+    gates: ["SecretExchange", "IdentityTension", "EmotionalContradiction"],
+    gateIcons: ["✉️", "🎭", "🎨"],
+    skill: "Theme Connection",
     scene:
-      "That night, Tilly lies awake thinking about everything that has happened—the strange figure, the note, " +
-      "and how real her reading felt.",
-    prompt: "How does this late-night scene deepen the story?",
+      "Tilly finds a tiny folded note inside an old book. The handwriting looks like her mother’s. " +
+      "Her breath catches—hope and fear pulling at her at the same time.",
+    prompt: "What deeper idea does this moment highlight?",
     options: [
       {
-        text: "It shows Tilly starting to connect all the strange clues and sense that her life and books are tangled together.",
+        text: "Tilly’s search for who she is is tightly connected to the hidden stories her mother left behind.",
         isCorrect: true
       },
       {
-        text: "It mostly repeats details from earlier without adding any new feelings or thoughts.",
+        text: "The note proves that Tilly’s mother never cared about books.",
         isCorrect: false
       },
       {
-        text: "It exists only to describe the furniture in her room and nothing more.",
+        text: "The moment shows that secret notes are always dangerous.",
         isCorrect: false
       },
       {
-        text: "It proves that Tilly has decided to stop wondering and never ask questions again.",
+        text: "It hints that Tilly should forget her past and stop asking questions.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-pagesco-bookwanderers-27",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "A repeated walk through the fiction aisle",
+    tier: "Fox",
+    gates: ["EmotionalEcho", "IdentityTension"],
+    gateIcons: ["📆", "🎭"],
+    skill: "Scene Purpose",
+    scene:
+      "Tilly walks through the same aisle where she once saw the mysterious girl. " +
+      "This time, nothing happens—but she notices her heartbeat is steadier.",
+    prompt: "What does this repeated moment show?",
+    options: [
+      {
+        text: "Tilly is growing braver, even when the magic does not appear.",
+        isCorrect: true
+      },
+      {
+        text: "The aisle has become completely unimportant to the story.",
+        isCorrect: false
+      },
+      {
+        text: "Tilly has stopped believing anything unusual ever happened.",
+        isCorrect: false
+      },
+      {
+        text: "The shop wants her to stay out of that aisle forever.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-pagesco-bookwanderers-28",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Listening at the stairwell",
+    tier: "Firefly",
+    gates: ["SecretExchange", "RelationshipShift"],
+    gateIcons: ["✉️", "🫂"],
+    skill: "Character Motivation",
+    scene:
+      "Tilly pauses at the stairwell when she hears her grandparents whispering about 'not telling her yet.' " +
+      "She holds her breath so she won’t interrupt.",
+    prompt: "What does this moment most likely show about Tilly’s motivation?",
+    options: [
+      {
+        text: "She wants to understand what they are hiding, but she is afraid of breaking their trust.",
+        isCorrect: true
+      },
+      {
+        text: "She is trying to gather evidence to prove they do not like her.",
+        isCorrect: false
+      },
+      {
+        text: "She hopes they are planning a surprise party for her.",
+        isCorrect: false
+      },
+      {
+        text: "She is bored and listening only to avoid going back to her room.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-pagesco-bookwanderers-29",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Her reflection in the library window",
+    tier: "Owl",
+    gates: ["IdentityTension", "EmotionalContradiction"],
+    gateIcons: ["🎭", "🎨"],
+    skill: "Symbolism",
+    scene:
+      "While shelving books at dusk, Tilly sees her reflection layered over rows of stories behind the glass. " +
+      "She feels both small and connected to something larger.",
+    prompt: "What might this layered reflection symbolize?",
+    options: [
+      {
+        text: "Tilly is beginning to see herself as part of the world of stories, not just a visitor.",
+        isCorrect: true
+      },
+      {
+        text: "Tilly only wants to look at her reflection instead of finishing her work.",
+        isCorrect: false
+      },
+      {
+        text: "The shop is too dark and needs better lighting.",
+        isCorrect: false
+      },
+      {
+        text: "She is disappointed that the glass makes her look taller.",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: "lit-pagesco-bookwanderers-30",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "Choosing which truth to tell",
+    tier: "Fox",
+    gates: ["IdentityTension", "SecretExchange", "ThresholdMoment"],
+    gateIcons: ["🎭", "✉️", "🚪"],
+    skill: "Character Motivation",
+    scene:
+      "Back home, her grandparent gently asks, 'Did anything unusual happen today?' " +
+      "Tilly hesitates. She thinks about the shimmering book, then quietly says, 'Not really.'",
+    prompt: "Why does Tilly most likely give this answer?",
+    options: [
+      {
+        text: "She is not ready to share the strange truth until she understands it herself.",
+        isCorrect: true
+      },
+      {
+        text: "She wants to convince her grandparents that she dislikes reading.",
+        isCorrect: false
+      },
+      {
+        text: "She believes the magical moment was only a dream with no meaning.",
+        isCorrect: false
+      },
+      {
+        text: "She thinks her grandparents already know everything that happened.",
         isCorrect: false
       }
     ]
   }
-
-  // --- Add more literature questions here (for other books/series) ---
 ];
 
 // ------------------ Game state ------------------
 
 let currentMode = "literature"; // default mode
 let questions = literatureQuestions;
-let questionOrder = []; // array of indices in randomized order
+let questionOrder = []; // indices in randomized order
 let currentIndex = 0;
 let score = 0;
 let hasScoredCurrentQuestion = false;
@@ -405,6 +482,8 @@ const answersEl = document.getElementById("answers");
 const feedbackEl = document.getElementById("feedback");
 const scoreEl = document.getElementById("score");
 const gameAreaEl = document.getElementById("game-area");
+const gateIconsEl = document.getElementById("gate-icons");
+const gateTooltipEl = document.getElementById("gate-tooltip");
 
 // ------------------ Helpers ------------------
 
@@ -417,11 +496,66 @@ function shuffleArray(array) {
   return arr;
 }
 
+// Scenario must satisfy at least two Gates to qualify (design rule)
+function isQuestionEligible(q) {
+  return Array.isArray(q.gates) && q.gates.length >= 2;
+}
+
 function buildQuestionOrder() {
-  const indices = questions.map((_, index) => index);
-  questionOrder = shuffleArray(indices);
+  const eligible = questions
+    .map((q, index) => ({ q, index }))
+    .filter(({ q }) => isQuestionEligible(q))
+    .map(({ index }) => index);
+
+  const indicesToUse = eligible.length
+    ? eligible
+    : questions.map((_, i) => i); // fallback if author forgot gates
+
+  questionOrder = shuffleArray(indicesToUse);
   currentIndex = 0;
 }
+
+function getCurrentQuestion() {
+  if (!questionOrder.length) return null;
+  const idx = questionOrder[currentIndex];
+  return questions[idx];
+}
+
+// Tooltip: full Seven Gates key
+function renderGateKeyTooltip() {
+  const rowsHtml = Object.values(GATE_INFO)
+    .map(
+      (info) =>
+        `<div class="gate-key-row">
+          <span class="gate-key-icon">${info.icon}</span>
+          <span><strong>${info.label}</strong><br>${info.meaning}</span>
+        </div>`
+    )
+    .join("");
+
+  gateTooltipEl.innerHTML = `
+    <div class="gate-key-title">The Seven Gates</div>
+    ${rowsHtml}
+  `;
+}
+
+// Hover wiring for gate key
+gateIconsEl.addEventListener("mouseenter", () => {
+  renderGateKeyTooltip();
+  gateTooltipEl.classList.remove("hidden");
+});
+
+gateIconsEl.addEventListener("mouseleave", (event) => {
+  if (!gateTooltipEl.contains(event.relatedTarget)) {
+    gateTooltipEl.classList.add("hidden");
+  }
+});
+
+gateTooltipEl.addEventListener("mouseleave", (event) => {
+  if (!gateIconsEl.contains(event.relatedTarget)) {
+    gateTooltipEl.classList.add("hidden");
+  }
+});
 
 // ------------------ Rendering ------------------
 
@@ -442,12 +576,6 @@ function setMode(mode) {
   renderQuestion();
 }
 
-function getCurrentQuestion() {
-  if (!questionOrder.length) return null;
-  const questionIndex = questionOrder[currentIndex];
-  return questions[questionIndex];
-}
-
 function renderQuestion() {
   const q = getCurrentQuestion();
   if (!q) {
@@ -456,6 +584,7 @@ function renderQuestion() {
     sceneTextEl.textContent = "Switch to the other tab or refresh to play again.";
     questionTextEl.textContent = "";
     answersEl.innerHTML = "";
+    gateIconsEl.textContent = "";
     return;
   }
 
@@ -463,23 +592,35 @@ function renderQuestion() {
   feedbackEl.textContent = "";
   feedbackEl.classList.remove("error");
 
-  const prefix = q.source ? q.source + " – " : "";
+  const prefix = q.source ? `${q.source} – ` : "";
   sceneTitleEl.textContent = prefix + q.sceneTitle;
   tierLabelEl.textContent = q.tier;
   sceneTextEl.textContent = q.scene;
   questionTextEl.textContent = q.prompt;
 
-  // Shuffle answer options so correct isn’t always first
-  const shuffledOptions = shuffleArray(q.options);
+  // Render gate icons for this question
+  gateIconsEl.innerHTML = "";
+  if (Array.isArray(q.gates)) {
+    q.gates.forEach((gateName) => {
+      const info = GATE_INFO[gateName];
+      if (!info) return;
+      const span = document.createElement("span");
+      span.className = "gate-icon";
+      span.textContent = info.icon;
+      span.title = info.label;
+      gateIconsEl.appendChild(span);
+    });
+  }
 
+  // Shuffle answer options
+  const shuffledOptions = shuffleArray(q.options);
   answersEl.innerHTML = "";
+
   shuffledOptions.forEach((opt) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
     btn.textContent = opt.text;
-    if (opt.isCorrect) {
-      btn.dataset.correct = "true";
-    }
+    if (opt.isCorrect) btn.dataset.correct = "true";
     btn.addEventListener("click", () => handleAnswerClick(btn, !!opt.isCorrect));
     answersEl.appendChild(btn);
   });
@@ -493,13 +634,13 @@ function updateScoreDisplay() {
 
 function handleAnswerClick(button, isCorrect) {
   const buttons = Array.from(document.querySelectorAll(".answer-btn"));
-  // If we already revealed the correct answer, ignore further clicks
+
+  // If we already revealed the correct answer for this question, ignore further clicks
   if (buttons.some((b) => b.disabled && b.classList.contains("correct"))) {
     return;
   }
 
   if (isCorrect) {
-    // Mark all correct options and lock buttons
     buttons.forEach((b) => {
       if (b.dataset.correct === "true") {
         b.classList.add("correct");
@@ -519,8 +660,7 @@ function handleAnswerClick(button, isCorrect) {
     setTimeout(() => {
       currentIndex += 1;
       if (currentIndex >= questionOrder.length) {
-        // Finished a pass through this mode – reshuffle and start again
-        buildQuestionOrder();
+        buildQuestionOrder(); // reshuffle for another round
       }
       renderQuestion();
     }, 650);
@@ -530,7 +670,7 @@ function handleAnswerClick(button, isCorrect) {
     feedbackEl.classList.add("error");
 
     gameAreaEl.classList.remove("shake");
-    void gameAreaEl.offsetWidth; // reflow to restart animation
+    void gameAreaEl.offsetWidth; // restart animation
     gameAreaEl.classList.add("shake");
 
     setTimeout(() => {
@@ -547,7 +687,7 @@ playBtn.addEventListener("click", () => {
   landingScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   document.body.classList.remove("landing");
-  setMode("literature"); // Always start in literature
+  setMode("literature");
   updateScoreDisplay();
 });
 
@@ -559,4 +699,4 @@ modeLitBtn.addEventListener("click", () => {
   if (currentMode !== "literature") setMode("literature");
 });
 
-// No initial render: we only render after Play is pressed.
+// No initial render: we render after Play is pressed.
