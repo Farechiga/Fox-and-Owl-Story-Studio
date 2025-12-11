@@ -1,6 +1,6 @@
 // questions.js
 
-// ------------------ Seven Gates metadata ------------------
+// ------------------ Seven Gates metadata -------------------
 
 // Official Seven Gates dictionary (icons + descriptions)
 const GATE_INFO = {
