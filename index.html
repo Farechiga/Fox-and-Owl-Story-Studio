@@ -251,6 +251,58 @@
       color: var(--gold);
     }
 
+.meta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.gate-icons {
+  font-size: 1.1rem;
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.gate-icon {
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.9));
+}
+
+/* Tooltip / key */
+.gate-tooltip {
+  position: absolute;
+  right: 24px;
+  top: 70px;
+  max-width: 280px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(189, 155, 64, 0.9);
+  color: var(--text-light);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+  z-index: 5;
+}
+
+.gate-tooltip .gate-key-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--gold);
+}
+
+.gate-tooltip .gate-key-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.gate-tooltip .gate-key-icon {
+  width: 1.1rem;
+}
+    
     @keyframes shake {
       0% { transform: translateX(0); }
       20% { transform: translateX(-6px); }
@@ -292,22 +344,28 @@
           <button id="mode-literature" class="mode-btn active" data-mode="literature">Literature</button>
         </div>
       </div>
-
+      
       <div id="game-area" class="game-area">
         <div class="header-row">
           <div id="scene-title" class="scene-title">Scene –</div>
-          <div id="tier-label" class="tier-label"></div>
+          <div class="meta-right">
+            <div id="gate-icons" class="gate-icons"></div>
+            <div id="tier-label" class="tier-label"></div>
+          </div>
         </div>
-
+      
         <div id="scene-text" class="scene-text"></div>
-
+      
         <div id="question-text" class="question-text"></div>
-
+      
         <div id="answers" class="answers"></div>
-
+      
         <div id="feedback" class="feedback"></div>
-
+      
         <div id="score" class="score">Score: 0</div>
+      
+        <!-- Tooltip with Seven Gates key -->
+        <div id="gate-tooltip" class="gate-tooltip hidden"></div>
       </div>
     </section>
   </div>
