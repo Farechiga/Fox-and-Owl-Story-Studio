@@ -140,6 +140,7 @@ const filmQuestions = [
       }
     ]
   }
+    // --- Add more film questions here (other Inside Out scenes or other movies) ---
 ];
 
 // Literature questions (Pages & Co – The Bookwanderers)
@@ -454,7 +455,629 @@ const literatureQuestions = [
         isCorrect: false
       }
     ]
-  }
+  },
+  {
+  id: "lit-pagesco-bookwanderers-31",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "The character who knows her name",
+  tier: "Owl",
+  gates: ["WorldLogicShift", "IdentityTension", "RelationshipShift"],
+  gateIcons: ["🔮", "🎭", "🫂"],
+  skill: "Theme Connection",
+  scene:
+    "Inside a story, Tilly meets a character who says her name before she introduces herself. " +
+    "The character smiles kindly, as if they have known her for a long time.",
+  prompt: "What deeper idea does this moment suggest?",
+  options: [
+    {
+      text: "Stories know Tilly in a personal way, hinting that she belongs to them more deeply than she realized.",
+      isCorrect: true
+    },
+    {
+      text: "The character has met every reader who has ever opened the book.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly should not read books because characters might learn too much about her.",
+      isCorrect: false
+    },
+    {
+      text: "This character is pretending to recognize everyone they meet.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-32",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "The shelf that creaks at the right moment",
+  tier: "Firefly",
+  gates: ["WorldLogicShift", "EmotionalContradiction"],
+  gateIcons: ["🔮", "🎨"],
+  skill: "Scene Purpose",
+  scene:
+    "As Tilly hesitates over whether to follow a clue, a tall bookshelf creaks sharply. " +
+    "It's just a normal sound—but it feels like a nudge.",
+  prompt: "What role does this creaking shelf play?",
+  options: [
+    {
+      text: "It gives Tilly a small push to act, blending ordinary life with something slightly magical.",
+      isCorrect: true
+    },
+    {
+      text: "It warns Tilly that the shop is falling apart and unsafe.",
+      isCorrect: false
+    },
+    {
+      text: "It shows that she should stop thinking about clues altogether.",
+      isCorrect: false
+    },
+    {
+      text: "It proves that someone is hiding inside the bookshelf.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-33",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "The memory she cannot place",
+  tier: "Fox",
+  gates: ["IdentityTension", "EmotionalContradiction"],
+  gateIcons: ["🎭", "🎨"],
+  skill: "Character Insight",
+  scene:
+    "When Tilly touches the spine of a certain book, she feels a warm flicker of a memory—" +
+    "a moment she can't quite recall. It makes her both comforted and unsettled.",
+  prompt: "What does this moment reveal about Tilly?",
+  options: [
+    {
+      text: "She feels drawn to stories in a way connected to her past, even if she does not fully understand why.",
+      isCorrect: true
+    },
+    {
+      text: "She remembers every story she has ever read with perfect clarity.",
+      isCorrect: false
+    },
+    {
+      text: "She dislikes this book and wants to avoid it.",
+      isCorrect: false
+    },
+    {
+      text: "She is confused because she has never read a book before.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-34",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A story whisper in the corner",
+  tier: "Owl",
+  gates: ["WorldLogicShift", "SecretExchange", "ThresholdMoment"],
+  gateIcons: ["🔮", "✉️", "🚪"],
+  skill: "Symbolism",
+  scene:
+    "As Tilly shelves books, she hears a faint whisper near the classics section—" +
+    "a whisper that seems to come from no one. A book on the top shelf shivers slightly.",
+  prompt: "What might the whisper symbolize in this moment?",
+  options: [
+    {
+      text: "The stories are inviting Tilly deeper, hinting that a new world is opening if she is brave enough to step forward.",
+      isCorrect: true
+    },
+    {
+      text: "Someone is hiding behind the shelves and making fun of her.",
+      isCorrect: false
+    },
+    {
+      text: "The whisper shows that the shop is poorly built and drafty.",
+      isCorrect: false
+    },
+    {
+      text: "The books are warning Tilly never to touch them again.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-35",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A friend who doesn't quite believe her",
+  tier: "Firefly",
+  gates: ["RelationshipShift", "EmotionalContradiction"],
+  gateIcons: ["🫂", "🎨"],
+  skill: "Relationship Change",
+  scene:
+    "Tilly excitedly tries to tell her friend about a strange moment in the bookshop, " +
+    "but her friend laughs it off—kindly, but dismissively.",
+  prompt: "What shift happens in this moment?",
+  options: [
+    {
+      text: "Tilly realizes her friend cares about her but cannot fully share or understand the magic she is experiencing.",
+      isCorrect: true
+    },
+    {
+      text: "Tilly understands that her friend dislikes reading altogether.",
+      isCorrect: false
+    },
+    {
+      text: "Her friend believes every word and wants to join the adventure immediately.",
+      isCorrect: false
+    },
+    {
+      text: "Her friend is angry and refuses to speak with her again.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-36",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "Ink on her fingertips",
+  tier: "Fox",
+  gates: ["WorldLogicShift", "IdentityTension"],
+  gateIcons: ["🔮", "🎭"],
+  skill: "Symbolism",
+  scene:
+    "After reading a passage aloud, Tilly notices black ink smudged on her fingertips—" +
+    "even though she never touched the printed page.",
+  prompt: "What does the ink most likely symbolize?",
+  options: [
+    {
+      text: "The boundary between Tilly and the stories is thinning, marking her as someone who belongs inside them.",
+      isCorrect: true
+    },
+    {
+      text: "The printer made a mistake while publishing the book.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly is getting messy and needs to wash her hands immediately.",
+      isCorrect: false
+    },
+    {
+      text: "The book is warning her to stop reading it.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-37",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "The chapter that rearranges itself",
+  tier: "Owl",
+  gates: ["WorldLogicShift", "EmotionalContradiction", "ThresholdMoment"],
+  gateIcons: ["🔮", "🎨", "🚪"],
+  skill: "Scene Purpose",
+  scene:
+    "As Tilly flips back to reread a chapter, she notices the paragraphs aren't where she left them. " +
+    "The story seems to be gently urging her toward a different page.",
+  prompt: "What is the purpose of this strange moment?",
+  options: [
+    {
+      text: "To show that the book is guiding Tilly toward something important she needs to discover next.",
+      isCorrect: true
+    },
+    {
+      text: "To prove that Tilly does not know how to read correctly.",
+      isCorrect: false
+    },
+    {
+      text: "To show that the author made a printing error.",
+      isCorrect: false
+    },
+    {
+      text: "To warn Tilly that she should stop rereading chapters altogether.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-38",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "Her grandparents’ shared glance",
+  tier: "Firefly",
+  gates: ["RelationshipShift", "SecretExchange"],
+  gateIcons: ["🫂", "✉️"],
+  skill: "Character Insight",
+  scene:
+    "When Tilly mentions the odd feeling she had near a row of books, her grandparents exchange a quick look—" +
+    "a look they try to hide.",
+  prompt: "What does this shared glance reveal?",
+  options: [
+    {
+      text: "They know more about what Tilly experienced than they are ready to explain.",
+      isCorrect: true
+    },
+    {
+      text: "They think Tilly is joking and want her to stop.",
+      isCorrect: false
+    },
+    {
+      text: "They believe Tilly imagined everything and are laughing at her.",
+      isCorrect: false
+    },
+    {
+      text: "They no longer want Tilly to help in the shop.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-39",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A doorway outlined in dust",
+  tier: "Fox",
+  gates: ["ThresholdMoment", "WorldLogicShift"],
+  gateIcons: ["🚪", "🔮"],
+  skill: "Symbolism",
+  scene:
+    "When Tilly stacks a pile of books aside, a faint rectangular outline in the dust appears on the floor—" +
+    "as if a door once existed there long ago.",
+  prompt: "What might this dusty outline symbolize?",
+  options: [
+    {
+      text: "A hidden path or story Tilly has not yet discovered, waiting for her to choose to explore it.",
+      isCorrect: true
+    },
+    {
+      text: "Someone forgot to clean the floor for several years.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly is imagining doors because she is bored.",
+      isCorrect: false
+    },
+    {
+      text: "The bookshop is running out of space and needs repairs.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-40",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A laugh that fades too quickly",
+  tier: "Firefly",
+  gates: ["EmotionalContradiction", "RelationshipShift"],
+  gateIcons: ["🎨", "🫂"],
+  skill: "Emotional Beat Shift",
+  scene:
+    "Tilly’s classmate laughs loudly at something funny Tilly says—" +
+    "but the laugh ends too fast, like she suddenly remembered something troubling.",
+  prompt: "What emotional change is happening here?",
+  options: [
+    {
+      text: "The classmate is masking a worry or discomfort underneath her cheerful reaction.",
+      isCorrect: true
+    },
+    {
+      text: "She is laughing because she finds everything hilarious all the time.",
+      isCorrect: false
+    },
+    {
+      text: "She is annoyed and laughing only to be polite.",
+      isCorrect: false
+    },
+    {
+      text: "She did not really hear what Tilly said.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-41",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A book that feels warmer each time she touches it",
+  tier: "Fox",
+  gates: ["WorldLogicShift", "IdentityTension"],
+  gateIcons: ["🔮", "🎭"],
+  skill: "Symbolism",
+  scene:
+    "Tilly notices that a particular book seems warmer each time she lays her hand on it—" +
+    "as if it recognizes her.",
+  prompt: "What might the warming book suggest?",
+  options: [
+    {
+      text: "The story may be connected to Tilly personally, responding to her growing awareness.",
+      isCorrect: true
+    },
+    {
+      text: "The book is overheating and needs to be repaired.",
+      isCorrect: false
+    },
+    {
+      text: "Someone placed a heater under the shelf.",
+      isCorrect: false
+    },
+    {
+      text: "The book wants her to stop touching it.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-42",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "The bookmark that flips itself",
+  tier: "Owl",
+  gates: ["WorldLogicShift", "ThresholdMoment", "EmotionalContradiction"],
+  gateIcons: ["🔮", "🚪", "🎨"],
+  skill: "Scene Purpose",
+  scene:
+    "When Tilly opens a novel, the bookmark slides forward on its own to a later chapter. " +
+    "Tilly hesitates, unsure whether to follow where it leads.",
+  prompt: "How does this moment deepen the story?",
+  options: [
+    {
+      text: "It shows the book guiding Tilly toward a discovery she might fear but needs to face.",
+      isCorrect: true
+    },
+    {
+      text: "It proves the bookmark is broken and needs replacing.",
+      isCorrect: false
+    },
+    {
+      text: "It means Tilly should skip reading entirely.",
+      isCorrect: false
+    },
+    {
+      text: "It shows that Tilly dislikes this book and wants to stop reading.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-43",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "Her mother’s name written in fading ink",
+  tier: "Owl",
+  gates: ["SecretExchange", "IdentityTension", "EmotionalContradiction"],
+  gateIcons: ["✉️", "🎭", "🎨"],
+  skill: "Theme Connection",
+  scene:
+    "Tilly opens a book and sees her mother’s name softly written on the inside cover—" +
+    "so faint it looks ready to disappear.",
+  prompt: "What deeper meaning does this fading signature convey?",
+  options: [
+    {
+      text: "Tilly’s connection to her mother is fragile but still alive, waiting for her to uncover the truth.",
+      isCorrect: true
+    },
+    {
+      text: "Her mother wanted to hide all evidence of ever reading books.",
+      isCorrect: false
+    },
+    {
+      text: "The bookshop keeps damaging old books by accident.",
+      isCorrect: false
+    },
+    {
+      text: "Someone else forged the signature for fun.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-44",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A repeated dream of stacked books",
+  tier: "Fox",
+  gates: ["EmotionalEcho", "IdentityTension"],
+  gateIcons: ["📆", "🎭"],
+  skill: "Character Insight",
+  scene:
+    "Tilly dreams again of towering stacks of books leaning toward her—" +
+    "but this time, instead of falling, they form a path.",
+  prompt: "What change does this repeated dream show?",
+  options: [
+    {
+      text: "Tilly is starting to see her journey as something she can walk into, not something crashing down on her.",
+      isCorrect: true
+    },
+    {
+      text: "Her dreams are becoming less interesting to her.",
+      isCorrect: false
+    },
+    {
+      text: "She wants to stop reading before bed.",
+      isCorrect: false
+    },
+    {
+      text: "The books are warning her not to trust any stories.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-45",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A page that ripples like water",
+  tier: "Owl",
+  gates: ["WorldLogicShift", "ThresholdMoment"],
+  gateIcons: ["🔮", "🚪"],
+  skill: "Symbolism",
+  scene:
+    "As Tilly leans closer to a page, the printed words gently ripple outward—" +
+    "like the surface of a pond after a pebble drops.",
+  prompt: "What does this ripple most likely symbolize?",
+  options: [
+    {
+      text: "Crossing into a story may deepen and widen her understanding, like stepping into unknown waters.",
+      isCorrect: true
+    },
+    {
+      text: "The book is damaged from water and needs repair.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly is dizzy and imagining the ripple.",
+      isCorrect: false
+    },
+    {
+      text: "The story wants her to close it immediately.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-46",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A question she almost asks",
+  tier: "Firefly",
+  gates: ["IdentityTension", "SecretExchange"],
+  gateIcons: ["🎭", "✉️"],
+  skill: "Character Motivation",
+  scene:
+    "Tilly opens her mouth to ask her grandparents about her mother—" +
+    "then closes it again, unsure whether she is ready for the answer.",
+  prompt: "What does this hesitation show about Tilly?",
+  options: [
+    {
+      text: "She wants to know the truth but fears what learning it might change.",
+      isCorrect: true
+    },
+    {
+      text: "She has no interest in learning about her mother.",
+      isCorrect: false
+    },
+    {
+      text: "She forgets what question she wanted to ask.",
+      isCorrect: false
+    },
+    {
+      text: "She thinks her grandparents never knew her mother at all.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-47",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A curious shift in the air",
+  tier: "Firefly",
+  gates: ["WorldLogicShift", "RelationshipShift"],
+  gateIcons: ["🔮", "🫂"],
+  skill: "Scene Purpose",
+  scene:
+    "As Tilly and a story character walk side by side, the air between them feels charged—" +
+    "like the beginning of a new understanding.",
+  prompt: "What does this charged feeling show?",
+  options: [
+    {
+      text: "A new connection is forming between Tilly and the character as their worlds draw closer.",
+      isCorrect: true
+    },
+    {
+      text: "The air pressure in the story world changes randomly for no reason.",
+      isCorrect: false
+    },
+    {
+      text: "The character is planning to trick Tilly soon.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly wants to end the adventure quickly.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-48",
+    source: "Pages & Co – The Bookwanderers",
+    sceneTitle: "The book that opens itself at midnight",
+    tier: "Fox",
+    gates: ["WorldLogicShift", "SecretExchange", "ThresholdMoment"],
+    gateIcons: ["🔮", "✉️", "🚪"],
+    skill: "Scene Purpose",
+    scene:
+      "Tilly wakes in the night to the soft sound of a book opening on her desk—" +
+      "slowly, as if by invitation.",
+    prompt: "What does this midnight moment suggest?",
+    options: [
+      {
+        text: "A new part of the story is calling to Tilly, urging her toward a deeper step into the book world.",
+        isCorrect: true
+      },
+      {
+        text: "The window breeze is blowing her books open randomly.",
+        isCorrect: false
+      },
+      {
+        text: "Someone sneaked into her room to prank her.",
+        isCorrect: false
+      },
+      {
+        text: "Tilly should never read books late at night.",
+        isCorrect: false
+      }
+    ]
+},
+{
+  id: "lit-pagesco-bookwanderers-49",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A reflection that looks braver than she feels",
+  tier: "Fox",
+  gates: ["IdentityTension", "EmotionalContradiction"],
+  gateIcons: ["🎭", "🎨"],
+  skill: "Character Insight",
+  scene:
+    "Tilly sees her reflection in the polished counter—standing taller than she feels inside. " +
+    "She wonders if she can grow into the version of herself she sees.",
+  prompt: "What does this reflection moment show?",
+  options: [
+    {
+      text: "Tilly is beginning to imagine a braver version of herself and wonders if she can become it.",
+      isCorrect: true
+    },
+    {
+      text: "Tilly thinks she looks too tall and wants to avoid mirrors.",
+      isCorrect: false
+    },
+    {
+      text: "She dislikes reflections and avoids all polished surfaces.",
+      isCorrect: false
+    },
+    {
+      text: "The counter is warped and making everyone look taller.",
+      isCorrect: false
+    }
+  ]
+},
+{
+  id: "lit-pagesco-bookwanderers-50",
+  source: "Pages & Co – The Bookwanderers",
+  sceneTitle: "A memory echoing through a story scene",
+  tier: "Owl",
+  gates: ["EmotionalEcho", "IdentityTension", "WorldLogicShift"],
+  gateIcons: ["📆", "🎭", "🔮"],
+  skill: "Theme Connection",
+  scene:
+    "Inside a story, Tilly watches a scene that feels uncannily similar to a moment from her own childhood—" +
+    "yet changed, as if the story remembers her differently.",
+  prompt: "What deeper idea does this echoing moment reveal?",
+  options: [
+    {
+      text: "Stories reflect pieces of Tilly’s life back to her, helping her understand herself through their world.",
+      isCorrect: true
+    },
+    {
+      text: "The story is copying her life because it has run out of original ideas.",
+      isCorrect: false
+    },
+    {
+      text: "Tilly’s childhood memories were incorrect all along.",
+      isCorrect: false
+    },
+    {
+      text: "The scene proves that stories should never relate to real life.",
+      isCorrect: false
+    }
+  ]
+}
+
+    // --- Add more literature questions here (for other books/series) ---
 ];
 
 // ------------------ Game state ------------------
